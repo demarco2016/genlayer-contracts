@@ -1,45 +1,21 @@
-# GenLayer Intelligent Contracts
+# GenLayer HelloWorld example
 
-Smart contracts deployed on **GenLayer Testnet (Bradbury)**.
+A small Python DSL contract stores a string. `get_storage()` reads it and `update_storage(new_storage)` replaces it. Initial value: `Hello from GenLayer!`.
 
-## 📋 About
+## Source and validation
 
-This repo contains intelligent contracts written for the GenLayer blockchain using Python-based DSL. Part of the GenLayer Builder Journey program.
+The source is `hello_world.py`. Python syntax can be checked without executing or deploying it:
 
-## 📄 Contracts
-
-### HelloWorld
-
-A simple storage contract that stores and retrieves a string value.
-
-**Features:**
-- `get_storage()` → Returns the stored string (view)
-- `update_storage(new_value)` → Updates the stored string (write)
-
-**Contract Address:** `0xF3...3404`
-
-**Transaction:** `0x57d6...fbb9`
-
-**Status:** ✅ ACCEPTED | ✅ SUCCESS
-
-### Run Locally
-
-```bash
-# Install GenLayer CLI
-pip install genlayer
-
-# Deploy
-genlayer deploy hello_world.py
+```sh
+python -m py_compile hello_world.py
 ```
 
-## 🛠️ Tech Stack
+This check does not validate the GenLayer VM, SDK compatibility, contract permissions, or deployment. The GenLayer runtime is required to execute the decorators and contract. This repository does not pin or bundle that runtime. Use the official [GenLayer documentation](https://docs.genlayer.com/) to select and configure the environment matching your target network.
 
-- **Language:** Python (GenLayer DSL)
-- **Network:** GenLayer Testnet (Bradbury)
-- **Type:** Intelligent Contract
+## Usage example
 
-## 🔗 Links
+In a compatible GenLayer environment, read `get_storage()`, then call `update_storage("A new value")` with an authorized test account, and read again. A write changes chain state and needs separate transaction authorization. No deployment or chain write was performed during this review.
 
-- [GenLayer](https://genlayer.com/)
-- [GenLayer Docs](https://docs.genlayer.com/)
-- [X: @Demarco639](https://x.com/Demarco639)
+## Limits and deployment status
+
+The former abbreviated address and transaction hash did not allow verification. No deployment success or supported testnet version is asserted here. Supply a full address, full transaction hash, network identifier, and explorer receipt before documenting a verified deployment. This example does not establish airdrop eligibility.
