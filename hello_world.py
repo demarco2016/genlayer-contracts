@@ -1,5 +1,5 @@
 # GenLayer Intelligent Contract
-# Deployed on GenLayer Testnet - Bradbury
+# Example source; deployment is not verified in this repository.
 
 from genlayer import *
 
@@ -16,4 +16,4 @@ class HelloWorld(gl.Contract):
     @gl.public.write
     def update_storage(self, new_storage: str) -> None:
         self.storage = new_storage
-      
+
